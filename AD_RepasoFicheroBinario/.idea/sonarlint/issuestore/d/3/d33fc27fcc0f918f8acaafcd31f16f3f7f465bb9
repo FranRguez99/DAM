@@ -1,0 +1,11 @@
+
+P
+java:S1118":Add a private constructor to hide the implicit public one.(®½úÓ
+N	java:S106
+"9Replace this use of System.out or System.err by a logger.(©£»÷
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¶´þ›ÿÿÿÿÿ
+E
+java:S1197"*Move the array designators [] to the type.(Ñ‡¥Æùÿÿÿÿ
+e
+java:S2674"JCheck the return value of the "read" call to see how many bytes were read.(ç¯êÃûÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Êñ×è

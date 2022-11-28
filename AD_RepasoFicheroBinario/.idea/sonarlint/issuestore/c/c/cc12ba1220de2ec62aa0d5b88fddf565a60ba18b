@@ -1,0 +1,39 @@
+
+g
+java:S1192"LDefine a constant instead of duplicating this literal "src/Ej2.bin" 3 times.(ã¬†ïşÿÿÿÿ
+@
+java:S54112"*Use the primitive boolean expression here.(â­ÊÊ
+=
+java:S2189!""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ
+P
+java:S1118":Add a private constructor to hide the implicit public one.(÷®òÇ
+S	java:S106
+"9Replace this use of System.out or System.err by a logger.(åã¨ûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ŒŞËäüÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¹ëµ«ùÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(³æ¸Ïøÿÿÿÿ
+”
+java:S1130"yRemove the declaration of thrown exception 'java.lang.ClassNotFoundException', as it cannot be thrown from method's body.(ïÙèùÿÿÿÿ
+C	java:S108$")Either remove or fill this block of code.(¿ßÔ–ıÿÿÿÿ
+h
+java:S3776*"RRefactor this method to reduce its Cognitive Complexity from 45 to the 15 allowed.(øÃ“ƒ
+N	java:S1063"9Replace this use of System.out or System.err by a logger.(´ãÀâ
+S	java:S1064"9Replace this use of System.out or System.err by a logger.(şú±Ÿûÿÿÿÿ
+N	java:S1065"9Replace this use of System.out or System.err by a logger.(©»§ô
+M	java:S1066"9Replace this use of System.out or System.err by a logger.(ç¸Y
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(€³®
+M	java:S1068"9Replace this use of System.out or System.err by a logger.(èüñ\
+N	java:S1069"9Replace this use of System.out or System.err by a logger.(¬›¥
+S	java:S106D"9Replace this use of System.out or System.err by a logger.(¦ØüÉøÿÿÿÿ
+S	java:S106H"9Replace this use of System.out or System.err by a logger.(›‰Œùÿÿÿÿ
+N	java:S106K"9Replace this use of System.out or System.err by a logger.(„‹Ú
+S	java:S106L"9Replace this use of System.out or System.err by a logger.(ÆºşŸÿÿÿÿÿ
+N	java:S106M"9Replace this use of System.out or System.err by a logger.(×Ã»Ç
+N	java:S106N"9Replace this use of System.out or System.err by a logger.(Ëı•Ÿ
+N	java:S106O"9Replace this use of System.out or System.err by a logger.(¬›¥
+<	java:S131Q""Add a default case to this switch.(ĞËÏ¸ûÿÿÿÿ
+N	java:S106S"9Replace this use of System.out or System.err by a logger.(Ã¤İ‡
+N	java:S106\"9Replace this use of System.out or System.err by a logger.(´¬ì®
+N	java:S106e"9Replace this use of System.out or System.err by a logger.(ß²•
+N	java:S106w"9Replace this use of System.out or System.err by a logger.(ñÌèÆ
+M	java:S106{"9Replace this use of System.out or System.err by a logger.(ª¿˜

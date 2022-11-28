@@ -1,0 +1,12 @@
+.button{
+	-fx-background-color :  #ad3128;
+	-fx-background-radius : 30;
+	-fx-border-color : black;
+	-fx-border-radius : 30;
+}
+
+.button:hover{
+	-fx-background-color : lightgray;
+	-fx-text-fill : #ad3128;
+	-fx-effect :  innershadow(three-pass-box, gray, 5 , 0.5, 1, 1);
+}

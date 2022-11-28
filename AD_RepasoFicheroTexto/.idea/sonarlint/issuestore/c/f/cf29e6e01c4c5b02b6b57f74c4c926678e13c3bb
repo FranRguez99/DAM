@@ -1,0 +1,10 @@
+
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112$"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112*"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+g
+java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(õÜ½ıÿÿÿÿ
+a
+java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(èÁM
+U
+java:S1118":Add a private constructor to hide the implicit public one.(ñ¹’¸ÿÿÿÿÿ
