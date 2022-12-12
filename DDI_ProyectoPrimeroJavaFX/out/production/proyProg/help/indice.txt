@@ -1,0 +1,5 @@
+>[Gestion FCT][archivo0]
+	|[Main][archivo1]
+      		- [Principal][archivo2]
+      		- [Secundaria][archivo3]
+      		- [terciaria][archivo4]

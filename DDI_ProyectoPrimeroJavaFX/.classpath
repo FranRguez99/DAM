@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="dist/lib/flatlaf-2.4.jar"/>
+	<classpathentry kind="lib" path="dist/lib/mysql-connector-java-5.0.5-bin.jar"/>
+	<classpathentry kind="lib" path="dist/lib/syntheticafx.theme.modena.jar"/>
+	<classpathentry kind="lib" path="dist/ProyectoPrimeroJavaFX.jar"/>
+	<classpathentry kind="lib" path="dist/run227095945/lib/flatlaf-2.4.jar"/>
+	<classpathentry kind="lib" path="dist/run227095945/lib/mysql-connector-java-5.0.5-bin.jar"/>
+	<classpathentry kind="lib" path="dist/run227095945/lib/syntheticafx.theme.modena.jar"/>
+	<classpathentry kind="lib" path="dist/run227095945/ProyectoPrimeroJavaFX.jar"/>
+	<classpathentry kind="lib" path="dist/run237367590/lib/flatlaf-2.4.jar"/>
+	<classpathentry kind="lib" path="dist/run237367590/lib/mysql-connector-java-5.0.5-bin.jar"/>
+	<classpathentry kind="lib" path="dist/run237367590/lib/syntheticafx.theme.modena.jar"/>
+	<classpathentry kind="lib" path="dist/run237367590/ProyectoPrimeroJavaFX.jar"/>
+	<classpathentry kind="lib" path="dist/run909208128/lib/flatlaf-2.4.jar"/>
+	<classpathentry kind="lib" path="dist/run909208128/lib/mysql-connector-java-5.0.5-bin.jar"/>
+	<classpathentry kind="lib" path="dist/run909208128/lib/syntheticafx.theme.modena.jar"/>
+	<classpathentry kind="lib" path="dist/run909208128/ProyectoPrimeroJavaFX.jar"/>
+	<classpathentry kind="lib" path="lib/flatlaf-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.0.5-bin.jar"/>
+	<classpathentry kind="lib" path="lib/syntheticafx.theme.modena.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ProyectoPrimeroJavaFX.jnlp">
+  <information>
+    <title>ProyectoPrimeroJavaFX</title>
+    <vendor>dam1</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="ProyectoPrimeroJavaFX.jar" size="126636" download="eager" />
+    <jar href="lib\flatlaf-2.4.jar" size="710382" download="eager" />
+    <jar href="lib\mysql-connector-java-5.0.5-bin.jar" size="512707" download="eager" />
+    <jar href="lib\syntheticafx.theme.modena.jar" size="39556" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="controller.Main"  name="ProyectoPrimeroJavaFX" />
+  <update check="always"/>
+</jnlp>
