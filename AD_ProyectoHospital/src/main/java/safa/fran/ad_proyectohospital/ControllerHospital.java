@@ -218,8 +218,11 @@ public class ControllerHospital implements Initializable {
     private String id_ingreso;
 
     // Conexión con la BD
-    Connection con;
+    private Connection con;
 
+    /**
+     * Función que controla el ingreso o actualización de los médicos, comprobando que todos los campos sean correctos
+     */
     @FXML
     void aceptarIngreso(ActionEvent event) {
         reseteaIngresos();
@@ -230,7 +233,7 @@ public class ControllerHospital implements Initializable {
             String mensajeError = "Error en los siguientes campos:\n";
             String procedencia, fecha_ingreso, num_planta, num_cama, observaciones, paciente = null, medico = null;
             // Guardamos los valores del formulario
-            procedencia = tfPoblacion.getText();
+            procedencia = tfProcedencia.getText();
             fecha_ingreso = tfFechaIngreso.getText();
             num_planta = tfNumPlanta.getText();
             num_cama = tfNumCama.getText();
@@ -241,17 +244,17 @@ public class ControllerHospital implements Initializable {
                 error = true;
                 mensajeError = mensajeError + " PROCEDENCIA (Máximo 20 caracteres)\n";
             }
-            if (!esFecha(fecha_ingreso)){ // Fecha ingreso
+            if (!esFecha(fecha_ingreso)) { // Fecha ingreso
                 tfFechaIngreso.setStyle("-fx-effect:  innershadow(three-pass-box, red, 5 , 0.5, 1, 1);");
                 error = true;
-                mensajeError = mensajeError + " FECHA INGRESO (Formato dd-MM-yyyy y anterior o igual a la fecha actual)\n";
+                mensajeError = mensajeError + " FECHA INGRESO (Formato yyyy-MM-dd y anterior o igual a la fecha actual)\n";
             }
-            if (num_planta.length() < 3 || !esNumerico(num_planta)) { // Número planta
+            if (num_planta.length() > 2 || !esNumerico(num_planta)) { // Número planta
                 tfNumPlanta.setStyle("-fx-effect:  innershadow(three-pass-box, red, 5 , 0.5, 1, 1);");
                 error = true;
                 mensajeError = mensajeError + " NÚMERO PLANTA (Máximo 2 dígitos)\n";
             }
-            if (num_cama.length() < 4 || !esNumerico(num_cama)) { // Número cama
+            if (num_cama.length() > 3 || !esNumerico(num_cama)) { // Número cama
                 tfNumCama.setStyle("-fx-effect:  innershadow(three-pass-box, red, 5 , 0.5, 1, 1);");
                 error = true;
                 mensajeError = mensajeError + " NÚMERO CAMA (Máximo 3 dígitos)\n";
@@ -261,25 +264,33 @@ public class ControllerHospital implements Initializable {
                 error = true;
                 mensajeError = mensajeError + " OBSERVACIONES (Máximo 240 caracteres)";
             }
-            try{
+            try { // Paciente
                 ResultSet rsPaciente = con.createStatement().executeQuery("SELECT seg_social FROM pacientes WHERE " + "apellidos = '" + cbPaciente.getSelectionModel().getSelectedItem().split(",")[0] + "' AND nombre" + " = '" + cbPaciente.getSelectionModel().getSelectedItem().split(",")[1].replace(" ", "") + "'");
                 while (rsPaciente.next()) {
                     paciente = rsPaciente.getObject(1).toString();
                 }
-            } catch (ArrayIndexOutOfBoundsException exception){
+            } catch (ArrayIndexOutOfBoundsException exception) {
                 cbPaciente.setStyle("-fx-effect:  innershadow(three-pass-box, red, 5 , 0.5, 1, 1);");
                 error = true;
                 mensajeError = mensajeError + " PACIENTE (Debe seleccionar un paciente)";
             }
-            try{
+            try { // Médico
                 ResultSet rsMedico = con.createStatement().executeQuery("SELECT id_medico FROM medicos WHERE " + "" + "apellidos = '" + cbMedico.getSelectionModel().getSelectedItem().split(",")[0] + "' AND " + "nombre" + " = '" + cbMedico.getSelectionModel().getSelectedItem().split(",")[1].replace(" ", "") + "'");
                 while (rsMedico.next()) {
                     medico = rsMedico.getObject(1).toString();
                 }
-            } catch (ArrayIndexOutOfBoundsException exception){
+            } catch (ArrayIndexOutOfBoundsException exception) {
                 cbMedico.setStyle("-fx-effect:  innershadow(three-pass-box, red, 5 , 0.5, 1, 1);");
                 error = true;
                 mensajeError = mensajeError + " PACIENTE (Debe seleccionar un médico)";
+            }
+            // Comprobar cama ocupada
+            ResultSet rs = con.createStatement().executeQuery("SELECT id_ingreso, num_planta, num_cama FROM ingresos");
+            while (rs.next()) {
+                if (rs.getObject(1).toString() != id_ingreso && num_planta.equals(rs.getObject(2).toString()) && num_cama.equals(rs.getObject(3).toString())) {
+                    error = true;
+                    mensajeError = mensajeError + "\nLA CAMA YA SE ENCUENTRA OCUPADA";
+                }
             }
 
             //Mostramos mensaje de error en caso de que lo hubiera
@@ -287,35 +298,31 @@ public class ControllerHospital implements Initializable {
                 ventanaError(mensajeError);
             } else {
                 // Comprobamos con la variable editaIngreso si haremos update o insert
-                if(!editaIngreso){ // INSERT
-                    PreparedStatement insertQuery = con.prepareStatement("INSERT INTO ingresos (procedencia, fecha_ingreso," +
-                            " num_planta, num_cama, observaciones, paciente, medico) VALUES (?,?,?,?,?,?,?)");
+                if (!editaIngreso) { // INSERT
+                    PreparedStatement insertQuery = con.prepareStatement("INSERT INTO ingresos (procedencia, fecha_ingreso," + " num_planta, num_cama, observaciones, paciente, medico) VALUES (?,?,?,?,?,?,?)");
                     construyeQueryIngreso(procedencia, fecha_ingreso, num_planta, num_cama, observaciones, paciente, medico, insertQuery);
-
                     if (insertQuery.executeUpdate() == 1) {
                         // Ventana de confirmación
                         ventanaDialogo("INSERTAR INGRESO", "Ingreso insertado con éxito");
                         actualizaTabla("INGRESOS", ingresosTable);
                     }
                 } else { // UPDATE
-                    PreparedStatement updateQuery = con.prepareStatement("UPDATE ingresos SET procedencia = ?, fecha_ingreso = ?, num_planta = ?, " +
-                            "num_cama = ?, observaciones = ? WHERE id_ingreso = " + id_ingreso);
+                    PreparedStatement updateQuery = con.prepareStatement("UPDATE ingresos SET procedencia = ?, fecha_ingreso = ?, num_planta = ?, " + "num_cama = ?, observaciones = ?, paciente = ?, medico = ? WHERE id_ingreso = " + id_ingreso);
                     // Construimos la query
                     construyeQueryIngreso(procedencia, fecha_ingreso, num_planta, num_cama, observaciones, paciente, medico, updateQuery);
-                    if(updateQuery.executeUpdate() == 1){
+                    if (updateQuery.executeUpdate() == 1) {
                         // Ventana de confirmación
                         ventanaDialogo("ACTUALIZAR INGRESO", "Ingreso actualizado con éxito");
                         actualizaTabla("INGRESOS", ingresosTable);
                     }
                 }
+                formIngresosPane.setVisible(false);
+                ingresosPane.setVisible(true);
             }
         } catch (Exception e) {
             System.out.println(e.getClass());
         }
-
     }
-
-
 
     /**
      * Función que controla el ingreso o actualización de los médicos, comprobando que todos los campos sean correctos
@@ -385,13 +392,12 @@ public class ControllerHospital implements Initializable {
                         actualizaTabla("MEDICOS", medicosTable);
                     }
                 } else { // UPDATE
-                    PreparedStatement updateQuery = con.prepareStatement("UPDATE medicos SET nombre = ?, apellidos = ?," +
-                            "especialidad = ?, num_colegiado = ?, cargo = ?, observaciones = ? WHERE id_medico = " + id_medico);
+                    PreparedStatement updateQuery = con.prepareStatement("UPDATE medicos SET nombre = ?, apellidos = ?," + "especialidad = ?, num_colegiado = ?, cargo = ?, observaciones = ? WHERE id_medico = " + id_medico);
                     // Construimos la query
                     construyeQueryMedico(nombre, apellidos, especialidad, num_colegiado, cargo, observaciones, updateQuery);
                     if (updateQuery.executeUpdate() == 1) {
                         // Ventana de confirmación
-                        ventanaDialogo("ACTUALIZAR MÉDICO", "Paciente actualizado con éxito");
+                        ventanaDialogo("ACTUALIZAR MÉDICO", "Médico actualizado con éxito");
                         actualizaTabla("MEDICOS", medicosTable);
                         cargaComboBox(cbMedico, "medicos");
                     }
@@ -524,9 +530,25 @@ public class ControllerHospital implements Initializable {
 
     }
 
+    /**
+     * Borra un ingreso de nuestra base de datos
+     */
     @FXML
     void borrarIngreso(ActionEvent event) {
-        id_ingreso = seleccionTabla(ingresosTable);
+        try {
+            id_ingreso = seleccionTabla(ingresosTable);
+            // Preparamos la consulta de eliminación
+            PreparedStatement deleteQuery = con.prepareStatement("DELETE FROM ingresos WHERE id_ingreso = " + id_ingreso);
+            if (deleteQuery.executeUpdate() == 1) {
+                // Ventana de confirmación
+                ventanaDialogo("ELIMINAR INGRESO", "Ingreso eliminado con éxito");
+                actualizaTabla("INGRESOS", ingresosTable);
+            }
+        } catch (NullPointerException npe) {
+            ventanaDialogo("ERROR", "No hay ningún ingreso seleccionado");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     /**
@@ -545,6 +567,8 @@ public class ControllerHospital implements Initializable {
             }
         } catch (NullPointerException npe) {
             ventanaDialogo("ERROR", "No hay ningún médico seleccionado");
+        } catch (SQLIntegrityConstraintViolationException scve) {
+            ventanaDialogo("ERROR", "No se puede eliminar al médico ya que tiene pacientes a su cargo");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -557,7 +581,6 @@ public class ControllerHospital implements Initializable {
     void borrarPaciente(ActionEvent event) {
         try {
             String seg_social = seleccionTabla(pacientesTable);
-            System.out.println(seg_social);
             // Preparamos la consulta de eliminación
             PreparedStatement deleteQuery = con.prepareStatement("DELETE FROM pacientes WHERE seg_social = " + seg_social);
             if (deleteQuery.executeUpdate() == 1) {
@@ -567,6 +590,8 @@ public class ControllerHospital implements Initializable {
             }
         } catch (NullPointerException npe) {
             ventanaDialogo("ERROR", "No hay ningún paciente seleccionado");
+        } catch (SQLIntegrityConstraintViolationException scve) {
+            ventanaDialogo("ERROR", "No se puede eliminar el pacienta ya que se encuentra ingresado");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -600,9 +625,51 @@ public class ControllerHospital implements Initializable {
         pacientesPane.setVisible(true);
     }
 
+    /**
+     * Carga el formulario de ingresos con los datos del médico seleccionado en la tabla
+     */
     @FXML
-    void editarIngreso(ActionEvent event) {
-        id_ingreso = seleccionTabla(ingresosTable);
+    void editarIngreso(ActionEvent event) throws SQLException {
+        Statement s = con.createStatement();
+        ResultSet rs;
+        String auxApellido;
+        String auxNombre;
+        String valor;
+        try {
+            id_ingreso = seleccionTabla(ingresosTable);
+            // Cargamos el paciente seleccionado de la base de datos
+            ResultSet datosIngreso = con.createStatement().executeQuery("SELECT * FROM ingresos WHERE id_ingreso = " + id_ingreso);
+            if (datosIngreso.next()) { // Rellena los campos con los datos del paciente
+                tfProcedencia.setText(datosIngreso.getObject(2).toString());
+                tfFechaIngreso.setText(datosIngreso.getObject(3).toString());
+                tfNumPlanta.setText(datosIngreso.getObject(4).toString());
+                tfNumCama.setText(datosIngreso.getObject(5).toString());
+                tfObservacionesIngresos.setText(datosIngreso.getObject(6).toString());
+                rs = s.executeQuery("SELECT * FROM pacientes WHERE seg_social = " + datosIngreso.getObject(7).toString());
+                while (rs.next()) {
+                    auxApellido = rs.getObject(3).toString();
+                    auxNombre = rs.getObject(2).toString();
+                    valor = auxApellido + ", " + auxNombre;
+                    cbPaciente.setValue(valor);
+                }
+                rs = s.executeQuery("SELECT * FROM medicos WHERE id_medico = " + datosIngreso.getObject(8).toString());
+                while (rs.next()) {
+                    auxApellido = rs.getObject(3).toString();
+                    auxNombre = rs.getObject(2).toString();
+                    valor = auxApellido + ", " + auxNombre;
+                    cbMedico.setValue(valor);
+                }
+            }
+            editaIngreso = true;
+            ingresosPane.setVisible(false);
+            formIngresosPane.setVisible(true);
+
+        } catch (NullPointerException npe) {
+            // Ventana de error
+            ventanaDialogo("ERROR", "No hay ningún ingreso seleccionado");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     /**
@@ -841,15 +908,15 @@ public class ControllerHospital implements Initializable {
 
     /**
      * Comprueba que la fecha introducida como cadena tiene el formato correcto para nuestra BBDD
+     *
      * @param fecha fecha introducida como cadena
      * @return true si es correcto, false si no lo es
      */
-    public boolean esFecha(String fecha){
+    public boolean esFecha(String fecha) {
         boolean esNumero = false;
-        try{
-            Date date =new SimpleDateFormat("dd-MM-yyyy").parse(fecha);
-            if(date.before(Date.from(new Date().toInstant())) || date.equals(new Date().toInstant()))
-            esNumero = true;
+        try {
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
+            if (date.before(Date.from(new Date().toInstant())) || date.equals(new Date().toInstant())) esNumero = true;
         } catch (ParseException ignore) {
 
         }

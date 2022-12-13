@@ -14,7 +14,6 @@ public class MainHospital extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainHospital.class.getResource("view_hospital.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 480);
-        // todo añadir icon a la aplicación
 
         stage.setTitle("Hospital Universitario Virgen del Rocío");
         stage.setScene(scene);
