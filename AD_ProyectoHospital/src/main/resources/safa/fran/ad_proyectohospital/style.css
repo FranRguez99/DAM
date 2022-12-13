@@ -1,0 +1,30 @@
+#greenButton{
+	-fx-background-color :  #339345;
+	-fx-background-radius : 30;
+	-fx-border-color : black;
+	-fx-border-radius : 30;
+}
+
+#greenButton:hover{
+	-fx-background-color : lightgray;
+	-fx-text-fill : #339345;
+	-fx-effect :  innershadow(three-pass-box, gray, 5 , 0.5, 1, 1);
+}
+
+#redButton{
+	-fx-background-color :  #ad3128;
+	-fx-background-radius : 30;
+	-fx-border-color : black;
+	-fx-border-radius : 30;
+}
+
+#redButton:hover{
+	-fx-background-color : lightgray;
+	-fx-text-fill : #ad3128;
+	-fx-effect :  innershadow(three-pass-box, gray, 5 , 0.5, 1, 1);
+}
+
+
+#tfForm{
+	-fx-effect:  innershadow(three-pass-box, gray, 5 , 0.5, 1, 1);
+}

@@ -597,7 +597,6 @@ public class ControllerHospital implements Initializable {
         }
     }
 
-
     /**
      * Cancela la introducción o modificación del ingreso y vuelve a la vista de datos
      */
@@ -772,7 +771,6 @@ public class ControllerHospital implements Initializable {
         formPacientesPane.setVisible(true);
     }
 
-
     /**
      * Muestra el panel de ingresos en nuestra interfaz
      */
@@ -811,6 +809,33 @@ public class ControllerHospital implements Initializable {
         mainPane.setVisible(true);
     }
 
+    /**
+     * Función que añade una fila a una tabla ya inicializada
+     *
+     * @param nomTabla nombre de la tabla en nuestra base de datos
+     * @param tabla    objeto TableView dentro de nuestra interfaz
+     */
+    public void actualizaTabla(String nomTabla, TableView tabla) {
+        ObservableList<ObservableList> data;
+        data = FXCollections.observableArrayList();
+        try {
+            // Recogemos los datos de nuestra tabla
+            String SQL = "SELECT * from " + nomTabla;
+            ResultSet rs = con.createStatement().executeQuery(SQL);
+
+            rellenaTabla(tabla, data, rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al añadir la fila");
+        }
+    }
+
+    /**
+     * Lee datos de nuestra bbdd y los carga en un ComboBox dado por parámetro del formulario de ingresos
+     *
+     * @param cb       ComboBox que va a ser cargado
+     * @param nomTabla tabla de nuestra bbdd de la que extraeremos los datos
+     */
     public void cargaComboBox(ComboBox<String> cb, String nomTabla) {
         // Nos aseguramos de limpiar el combobox
         cb.getItems().clear();
@@ -857,53 +882,44 @@ public class ControllerHospital implements Initializable {
     }
 
     /**
-     * Identifica el dato seleccionado de la tabla
+     * Construye la query dada como parámetro con los valores dados
      */
-    public String seleccionTabla(TableView<ObservableList> tabla) {
-        ObservableList<String> data;
-        Object value = null;
-        data = tabla.getSelectionModel().getSelectedItem();
-        value = data.get(0);
-        return (String) value;
+    private static void construyeQueryIngreso(String procedencia, String fecha_ingreso, String num_planta, String num_cama, String observaciones, String paciente, String medico, PreparedStatement insertQuery) throws SQLException {
+        // Construimos la query
+        insertQuery.setString(1, procedencia);
+        insertQuery.setString(2, fecha_ingreso);
+        insertQuery.setString(3, num_planta);
+        insertQuery.setString(4, num_cama);
+        insertQuery.setString(5, observaciones);
+        insertQuery.setString(6, paciente);
+        insertQuery.setString(7, medico);
     }
 
     /**
-     * Llena la tabla de nuestra interfaz con los datos de nuestra BBDD
-     *
-     * @param tabla tabla que vamos a rellenar
+     * Construye la query dada como parámetro con los valores dados
      */
-    private static void rellenaTabla(TableView tabla, ObservableList<ObservableList> datos, ResultSet rs) throws SQLException {
-        while (rs.next()) {
-            // Iteramos las filas y las añadimos a la tabla de datos
-            ObservableList<String> fila = FXCollections.observableArrayList();
-            for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                fila.add(rs.getString(i));
-            }
-            datos.add(fila);
-        }
-        // Añadimos los datos a la tabla
-        tabla.setItems(datos);
+    private static void construyeQueryMedico(String nombre, String apellidos, String especialidad, String num_colegiado, String cargo, String observaciones, PreparedStatement insertQuery) throws SQLException {
+        insertQuery.setString(1, nombre);
+        insertQuery.setString(2, apellidos);
+        insertQuery.setString(3, especialidad);
+        insertQuery.setString(4, num_colegiado);
+        insertQuery.setString(5, cargo);
+        insertQuery.setString(6, observaciones);
     }
 
     /**
-     * Función que añade una fila a una tabla ya inicializada
-     *
-     * @param nomTabla nombre de la tabla en nuestra base de datos
-     * @param tabla    objeto TableView dentro de nuestra interfaz
+     * Construye la query dada como parámetro con los valores dados
      */
-    public void actualizaTabla(String nomTabla, TableView tabla) {
-        ObservableList<ObservableList> data;
-        data = FXCollections.observableArrayList();
-        try {
-            // Recogemos los datos de nuestra tabla
-            String SQL = "SELECT * from " + nomTabla;
-            ResultSet rs = con.createStatement().executeQuery(SQL);
-
-            rellenaTabla(tabla, data, rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error al añadir la fila");
-        }
+    private void construyeQueryPaciente(String valor1, String valor2, String valor3, String valor4, String valor5, String valor6, String valor7, String valor8, String valor9, PreparedStatement updateQuery) throws SQLException {
+        updateQuery.setString(1, valor1);
+        updateQuery.setString(2, valor2);
+        updateQuery.setString(3, valor3);
+        updateQuery.setString(4, valor4);
+        updateQuery.setString(5, valor5);
+        updateQuery.setString(6, valor6);
+        updateQuery.setString(7, valor7);
+        updateQuery.setString(8, valor8);
+        updateQuery.setString(9, valor9);
     }
 
     /**
@@ -947,45 +963,21 @@ public class ControllerHospital implements Initializable {
     }
 
     /**
-     * Construye la query dada como parámetro con los valores dados
+     * Llena la tabla de nuestra interfaz con los datos de nuestra BBDD
+     *
+     * @param tabla tabla que vamos a rellenar
      */
-    private static void construyeQueryIngreso(String procedencia, String fecha_ingreso, String num_planta, String num_cama, String observaciones, String paciente, String medico, PreparedStatement insertQuery) throws SQLException {
-        // Construimos la query
-        insertQuery.setString(1, procedencia);
-        insertQuery.setString(2, fecha_ingreso);
-        insertQuery.setString(3, num_planta);
-        insertQuery.setString(4, num_cama);
-        insertQuery.setString(5, observaciones);
-        insertQuery.setString(6, paciente);
-        insertQuery.setString(7, medico);
-    }
-
-
-    /**
-     * Construye la query dada como parámetro con los valores dados
-     */
-    private static void construyeQueryMedico(String nombre, String apellidos, String especialidad, String num_colegiado, String cargo, String observaciones, PreparedStatement insertQuery) throws SQLException {
-        insertQuery.setString(1, nombre);
-        insertQuery.setString(2, apellidos);
-        insertQuery.setString(3, especialidad);
-        insertQuery.setString(4, num_colegiado);
-        insertQuery.setString(5, cargo);
-        insertQuery.setString(6, observaciones);
-    }
-
-    /**
-     * Construye la query dada como parámetro con los valores dados
-     */
-    private void construyeQueryPaciente(String valor1, String valor2, String valor3, String valor4, String valor5, String valor6, String valor7, String valor8, String valor9, PreparedStatement updateQuery) throws SQLException {
-        updateQuery.setString(1, valor1);
-        updateQuery.setString(2, valor2);
-        updateQuery.setString(3, valor3);
-        updateQuery.setString(4, valor4);
-        updateQuery.setString(5, valor5);
-        updateQuery.setString(6, valor6);
-        updateQuery.setString(7, valor7);
-        updateQuery.setString(8, valor8);
-        updateQuery.setString(9, valor9);
+    private static void rellenaTabla(TableView tabla, ObservableList<ObservableList> datos, ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            // Iteramos las filas y las añadimos a la tabla de datos
+            ObservableList<String> fila = FXCollections.observableArrayList();
+            for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                fila.add(rs.getString(i));
+            }
+            datos.add(fila);
+        }
+        // Añadimos los datos a la tabla
+        tabla.setItems(datos);
     }
 
     /**
@@ -1029,6 +1021,17 @@ public class ControllerHospital implements Initializable {
         tfTelefono.setStyle("-fx-effect:  innershadow(three-pass-box, gray, 5 , 0.5, 1, 1);");
         tfNumHistorial.setStyle("-fx-effect:  innershadow(three-pass-box, gray, 5 , 0.5, 1, 1);");
         tfObservacionesPacientes.setStyle("-fx-effect:  innershadow(three-pass-box, gray, 5 , 0.5, 1, 1);");
+    }
+
+    /**
+     * Identifica el dato seleccionado de la tabla
+     */
+    public String seleccionTabla(TableView<ObservableList> tabla) {
+        ObservableList<String> data;
+        Object value = null;
+        data = tabla.getSelectionModel().getSelectedItem();
+        value = data.get(0);
+        return (String) value;
     }
 
     /**
