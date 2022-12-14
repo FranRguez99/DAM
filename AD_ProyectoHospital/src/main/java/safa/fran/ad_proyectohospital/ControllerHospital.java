@@ -238,6 +238,7 @@ public class ControllerHospital implements Initializable {
             num_planta = tfNumPlanta.getText();
             num_cama = tfNumCama.getText();
             observaciones = tfObservacionesIngresos.getText();
+
             // Comprobaciones
             if (procedencia.length() == 0 || procedencia.length() > 20) { // Procedencia
                 tfProcedencia.setStyle("-fx-effect:  innershadow(three-pass-box, red, 5 , 0.5, 1, 1);");
@@ -265,7 +266,10 @@ public class ControllerHospital implements Initializable {
                 mensajeError = mensajeError + " OBSERVACIONES (Máximo 240 caracteres)";
             }
             try { // Paciente
-                ResultSet rsPaciente = con.createStatement().executeQuery("SELECT seg_social FROM pacientes WHERE " + "apellidos = '" + cbPaciente.getSelectionModel().getSelectedItem().split(",")[0] + "' AND nombre" + " = '" + cbPaciente.getSelectionModel().getSelectedItem().split(",")[1].replace(" ", "") + "'");
+                ResultSet rsPaciente = con.createStatement().executeQuery("SELECT seg_social FROM pacientes WHERE" +
+                        " " + "apellidos = '" + cbPaciente.getSelectionModel().getSelectedItem().split(",")[0] +
+                        "' AND nombre" + " = '" + cbPaciente.getSelectionModel().getSelectedItem().split(",")
+                        [1].replace(" ", "") + "'");
                 while (rsPaciente.next()) {
                     paciente = rsPaciente.getObject(1).toString();
                 }
@@ -275,7 +279,10 @@ public class ControllerHospital implements Initializable {
                 mensajeError = mensajeError + " PACIENTE (Debe seleccionar un paciente)";
             }
             try { // Médico
-                ResultSet rsMedico = con.createStatement().executeQuery("SELECT id_medico FROM medicos WHERE " + "" + "apellidos = '" + cbMedico.getSelectionModel().getSelectedItem().split(",")[0] + "' AND " + "nombre" + " = '" + cbMedico.getSelectionModel().getSelectedItem().split(",")[1].replace(" ", "") + "'");
+                ResultSet rsMedico = con.createStatement().executeQuery("SELECT id_medico FROM medicos WHERE" +
+                        " " + "" + "apellidos = '" + cbMedico.getSelectionModel().getSelectedItem().split(",")[0]
+                        + "' AND " + "nombre" + " = '" + cbMedico.getSelectionModel().getSelectedItem().split(",")
+                        [1].replace(" ", "") + "'");
                 while (rsMedico.next()) {
                     medico = rsMedico.getObject(1).toString();
                 }
@@ -287,7 +294,8 @@ public class ControllerHospital implements Initializable {
             // Comprobar cama ocupada
             ResultSet rs = con.createStatement().executeQuery("SELECT id_ingreso, num_planta, num_cama FROM ingresos");
             while (rs.next()) {
-                if (rs.getObject(1).toString() != id_ingreso && num_planta.equals(rs.getObject(2).toString()) && num_cama.equals(rs.getObject(3).toString())) {
+                if (rs.getObject(1).toString() != id_ingreso && num_planta.equals(rs.getObject(2)
+                        .toString()) && num_cama.equals(rs.getObject(3).toString())) {
                     error = true;
                     mensajeError = mensajeError + "\nLA CAMA YA SE ENCUENTRA OCUPADA";
                 }
@@ -299,7 +307,8 @@ public class ControllerHospital implements Initializable {
             } else {
                 // Comprobamos con la variable editaIngreso si haremos update o insert
                 if (!editaIngreso) { // INSERT
-                    PreparedStatement insertQuery = con.prepareStatement("INSERT INTO ingresos (procedencia, fecha_ingreso," + " num_planta, num_cama, observaciones, paciente, medico) VALUES (?,?,?,?,?,?,?)");
+                    PreparedStatement insertQuery = con.prepareStatement("INSERT INTO ingresos (procedencia, " +
+                            "fecha_ingreso," + " num_planta, num_cama, observaciones, paciente, medico) VALUES (?,?,?,?,?,?,?)");
                     construyeQueryIngreso(procedencia, fecha_ingreso, num_planta, num_cama, observaciones, paciente, medico, insertQuery);
                     if (insertQuery.executeUpdate() == 1) {
                         // Ventana de confirmación
@@ -307,7 +316,9 @@ public class ControllerHospital implements Initializable {
                         actualizaTabla("INGRESOS", ingresosTable);
                     }
                 } else { // UPDATE
-                    PreparedStatement updateQuery = con.prepareStatement("UPDATE ingresos SET procedencia = ?, fecha_ingreso = ?, num_planta = ?, " + "num_cama = ?, observaciones = ?, paciente = ?, medico = ? WHERE id_ingreso = " + id_ingreso);
+                    PreparedStatement updateQuery = con.prepareStatement("UPDATE ingresos SET procedencia = ?," +
+                            " fecha_ingreso = ?, num_planta = ?, " + "num_cama = ?, observaciones = ?, paciente = ?," +
+                            " medico = ? WHERE id_ingreso = " + id_ingreso);
                     // Construimos la query
                     construyeQueryIngreso(procedencia, fecha_ingreso, num_planta, num_cama, observaciones, paciente, medico, updateQuery);
                     if (updateQuery.executeUpdate() == 1) {
@@ -382,9 +393,11 @@ public class ControllerHospital implements Initializable {
             } else {
                 // Comprobamos con la variable editaMedico si haremos update o insert
                 if (!editaMedico) { // INSERT
-                    PreparedStatement insertQuery = con.prepareStatement("INSERT INTO medicos (nombre, apellidos, " + "especialidad, num_colegiado, cargo, observaciones) VALUES (?,?,?,?,?,?)");
+                    PreparedStatement insertQuery = con.prepareStatement("INSERT INTO medicos (nombre, apellidos," +
+                            " " + "especialidad, num_colegiado, cargo, observaciones) VALUES (?,?,?,?,?,?)");
                     // Construimos la query
-                    construyeQueryMedico(nombre, apellidos, especialidad, num_colegiado, cargo, observaciones, insertQuery);
+                    construyeQueryMedico(nombre, apellidos, especialidad, num_colegiado, cargo, observaciones,
+                            insertQuery);
 
                     if (insertQuery.executeUpdate() == 1) {
                         // Ventana de confirmación
@@ -392,9 +405,12 @@ public class ControllerHospital implements Initializable {
                         actualizaTabla("MEDICOS", medicosTable);
                     }
                 } else { // UPDATE
-                    PreparedStatement updateQuery = con.prepareStatement("UPDATE medicos SET nombre = ?, apellidos = ?," + "especialidad = ?, num_colegiado = ?, cargo = ?, observaciones = ? WHERE id_medico = " + id_medico);
+                    PreparedStatement updateQuery = con.prepareStatement("UPDATE medicos SET nombre = ?," +
+                            " apellidos = ?," + "especialidad = ?, num_colegiado = ?, cargo = ?, " +
+                            "observaciones = ? WHERE id_medico = " + id_medico);
                     // Construimos la query
-                    construyeQueryMedico(nombre, apellidos, especialidad, num_colegiado, cargo, observaciones, updateQuery);
+                    construyeQueryMedico(nombre, apellidos, especialidad, num_colegiado, cargo, observaciones,
+                            updateQuery);
                     if (updateQuery.executeUpdate() == 1) {
                         // Ventana de confirmación
                         ventanaDialogo("ACTUALIZAR MÉDICO", "Médico actualizado con éxito");
@@ -427,7 +443,8 @@ public class ControllerHospital implements Initializable {
             boolean error = false;
             // Variables para guardar el mensaje de error y los valores del formulario
             String mensajeError = "Error en los siguientes campos:\n";
-            String seg_social, nombrePaciente, apellidosPaciente, domicilio, poblacion, provincia, cod_postal, num_tlfn, num_historial, observaciones;
+            String seg_social, nombrePaciente, apellidosPaciente, domicilio, poblacion, provincia, cod_postal,
+                    num_tlfn, num_historial, observaciones;
 
             // Guardamos los valores del formulario
             seg_social = tfSegSocial.getText();
@@ -493,9 +510,12 @@ public class ControllerHospital implements Initializable {
             } else {
                 // Comprobamos con la variable editaPaciente si haremos update o insert
                 if (!editaPaciente) { // INSERT
-                    PreparedStatement insertQuery = con.prepareStatement("INSERT INTO pacientes (seg_social, nombre," + "apellidos, domicilio, poblacion, provincia, num_tlfn, num_historial, observaciones) VALUES " + "(?,?,?,?,?,?,?,?,?)");
+                    PreparedStatement insertQuery = con.prepareStatement("INSERT INTO pacientes (seg_social," +
+                            " nombre," + "apellidos, domicilio, poblacion, provincia, num_tlfn, num_historial," +
+                            " observaciones) VALUES " + "(?,?,?,?,?,?,?,?,?)");
                     // Construimos la query
-                    construyeQueryPaciente(seg_social, nombrePaciente, apellidosPaciente, domicilio, poblacion, provincia, num_tlfn, num_historial, observaciones, insertQuery);
+                    construyeQueryPaciente(seg_social, nombrePaciente, apellidosPaciente, domicilio, poblacion,
+                            provincia, num_tlfn, num_historial, observaciones, insertQuery);
                     try {
                         if (insertQuery.executeUpdate() == 1) {
                             // Ventana de confirmación
@@ -504,13 +524,17 @@ public class ControllerHospital implements Initializable {
                         }
                     } catch (SQLIntegrityConstraintViolationException exception) {
                         // Ventana de error
-                        ventanaDialogo("ERROR", "Ese número de Seguridad Social ya se encuentra registrado");
+                        ventanaDialogo("ERROR", "Ese número de Seguridad Social ya se encuentra" +
+                                " registrado");
                     }
 
                 } else { // UPDATE
-                    PreparedStatement updateQuery = con.prepareStatement("UPDATE pacientes SET nombre = ?, apellidos = ?," + "domicilio = ?, poblacion = ?, provincia = ?, num_tlfn = ?, num_historial = ?, observaciones = ?" + "WHERE seg_social = ?");
+                    PreparedStatement updateQuery = con.prepareStatement("UPDATE pacientes SET nombre = ?," +
+                            " apellidos = ?," + "domicilio = ?, poblacion = ?, provincia = ?, num_tlfn = ?," +
+                            " num_historial = ?, observaciones = ?" + "WHERE seg_social = ?");
                     // Construimos la query
-                    construyeQueryPaciente(nombrePaciente, apellidosPaciente, domicilio, poblacion, provincia, num_tlfn, num_historial, observaciones, seg_social, updateQuery);
+                    construyeQueryPaciente(nombrePaciente, apellidosPaciente, domicilio, poblacion, provincia,
+                            num_tlfn, num_historial, observaciones, seg_social, updateQuery);
 
                     if (updateQuery.executeUpdate() == 1) {
                         // Ventana de confirmación
@@ -534,7 +558,7 @@ public class ControllerHospital implements Initializable {
      * Borra un ingreso de nuestra base de datos
      */
     @FXML
-    void borrarIngreso(ActionEvent event) {
+    void borrarIngreso() {
         try {
             id_ingreso = seleccionTabla(ingresosTable);
             // Preparamos la consulta de eliminación
@@ -555,11 +579,12 @@ public class ControllerHospital implements Initializable {
      * Borra un médico de nuestra base de datos
      */
     @FXML
-    void borrarMedico(ActionEvent event) {
+    void borrarMedico() {
         try {
             id_medico = seleccionTabla(medicosTable);
             // Preparamos la consulta de eliminación
-            PreparedStatement deleteQuery = con.prepareStatement("DELETE FROM medicos WHERE id_medico = " + id_medico);
+            PreparedStatement deleteQuery = con.prepareStatement("DELETE FROM medicos WHERE id_medico = "
+                    + id_medico);
             if (deleteQuery.executeUpdate() == 1) {
                 // Ventana de confirmación
                 ventanaDialogo("ELIMINAR MÉDICO", "Médico eliminado con éxito");
@@ -578,11 +603,12 @@ public class ControllerHospital implements Initializable {
      * Borra un paciente de nuestra base de datos
      */
     @FXML
-    void borrarPaciente(ActionEvent event) {
+    void borrarPaciente() {
         try {
             String seg_social = seleccionTabla(pacientesTable);
             // Preparamos la consulta de eliminación
-            PreparedStatement deleteQuery = con.prepareStatement("DELETE FROM pacientes WHERE seg_social = " + seg_social);
+            PreparedStatement deleteQuery = con.prepareStatement("DELETE FROM pacientes WHERE seg_social = "
+                    + seg_social);
             if (deleteQuery.executeUpdate() == 1) {
                 // Ventana de confirmación
                 ventanaDialogo("ELIMINAR PACIENTE", "Paciente eliminado con éxito");
@@ -628,7 +654,7 @@ public class ControllerHospital implements Initializable {
      * Carga el formulario de ingresos con los datos del médico seleccionado en la tabla
      */
     @FXML
-    void editarIngreso(ActionEvent event) throws SQLException {
+    void editarIngreso() throws SQLException {
         Statement s = con.createStatement();
         ResultSet rs;
         String auxApellido;
@@ -637,21 +663,24 @@ public class ControllerHospital implements Initializable {
         try {
             id_ingreso = seleccionTabla(ingresosTable);
             // Cargamos el paciente seleccionado de la base de datos
-            ResultSet datosIngreso = con.createStatement().executeQuery("SELECT * FROM ingresos WHERE id_ingreso = " + id_ingreso);
+            ResultSet datosIngreso = con.createStatement().executeQuery("SELECT * FROM ingresos " +
+                    "WHERE id_ingreso = " + id_ingreso);
             if (datosIngreso.next()) { // Rellena los campos con los datos del paciente
                 tfProcedencia.setText(datosIngreso.getObject(2).toString());
                 tfFechaIngreso.setText(datosIngreso.getObject(3).toString());
                 tfNumPlanta.setText(datosIngreso.getObject(4).toString());
                 tfNumCama.setText(datosIngreso.getObject(5).toString());
                 tfObservacionesIngresos.setText(datosIngreso.getObject(6).toString());
-                rs = s.executeQuery("SELECT * FROM pacientes WHERE seg_social = " + datosIngreso.getObject(7).toString());
+                rs = s.executeQuery("SELECT * FROM pacientes WHERE seg_social = " +
+                        datosIngreso.getObject(7).toString());
                 while (rs.next()) {
                     auxApellido = rs.getObject(3).toString();
                     auxNombre = rs.getObject(2).toString();
                     valor = auxApellido + ", " + auxNombre;
                     cbPaciente.setValue(valor);
                 }
-                rs = s.executeQuery("SELECT * FROM medicos WHERE id_medico = " + datosIngreso.getObject(8).toString());
+                rs = s.executeQuery("SELECT * FROM medicos WHERE id_medico = " +
+                        datosIngreso.getObject(8).toString());
                 while (rs.next()) {
                     auxApellido = rs.getObject(3).toString();
                     auxNombre = rs.getObject(2).toString();
@@ -675,11 +704,12 @@ public class ControllerHospital implements Initializable {
      * Carga el formulario de médicos con los datos del médico seleccionado en la tabla
      */
     @FXML
-    void editarMedico(ActionEvent event) {
+    void editarMedico() {
         try {
             id_medico = seleccionTabla(medicosTable);
             // Cargamos el paciente seleccionado de la base de datos
-            ResultSet datosMedico = con.createStatement().executeQuery("SELECT * FROM medicos WHERE id_medico = " + id_medico);
+            ResultSet datosMedico = con.createStatement().executeQuery("SELECT * FROM medicos " +
+                    "WHERE id_medico = " + id_medico);
             if (datosMedico.next()) { // Rellena los campos con los datos del paciente
                 tfNombreMedico.setText(datosMedico.getObject(2).toString());
                 tfApellidoMedico.setText(datosMedico.getObject(3).toString());
@@ -704,11 +734,12 @@ public class ControllerHospital implements Initializable {
      * Carga el formulario de pacientes con los datos del paciente seleccionado en la tabla
      */
     @FXML
-    void editarPaciente(ActionEvent event) {
+    void editarPaciente() {
         try {
             seg_social = seleccionTabla(pacientesTable);
             // Cargamos el paciente seleccionado de la base de datos
-            ResultSet datosPaciente = con.createStatement().executeQuery("SELECT * FROM pacientes WHERE seg_social = " + seg_social);
+            ResultSet datosPaciente = con.createStatement().executeQuery("SELECT * FROM pacientes " +
+                    "WHERE seg_social = " + seg_social);
             if (datosPaciente.next()) { // Rellena los campos con los datos del paciente
                 tfSegSocial.setText(datosPaciente.getObject(1).toString());
                 tfSegSocial.setEditable(false);
@@ -738,7 +769,7 @@ public class ControllerHospital implements Initializable {
      * Accede al formulario de creación o edición de ingresos en nuestra interfaz
      */
     @FXML
-    void nuevoIngreso(ActionEvent event) {
+    void nuevoIngreso() {
         reseteaIngresos();
         vaciaIngresos();
         editaIngreso = false;
@@ -750,7 +781,7 @@ public class ControllerHospital implements Initializable {
      * Accede al formulario de creación o edición de médicos en nuestra interfaz
      */
     @FXML
-    void nuevoMedico(ActionEvent event) {
+    void nuevoMedico() {
         reseteaMedicos();
         vaciaMedicos();
         editaMedico = false;
@@ -762,7 +793,7 @@ public class ControllerHospital implements Initializable {
      * Accede al formulario de creación o edición de pacientes en nuestra interfaz
      */
     @FXML
-    void nuevoPaciente(ActionEvent event) {
+    void nuevoPaciente() {
         reseteaPacientes();
         vaciaPacientes();
         tfSegSocial.setEditable(true);
@@ -869,7 +900,8 @@ public class ControllerHospital implements Initializable {
                 final int j = i;
                 // Cogemos los nombres de las columnas para añadirlas a nuestra tabla
                 TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
-                col.setCellValueFactory((Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>) param -> new SimpleStringProperty(param.getValue().get(j).toString()));
+                col.setCellValueFactory((Callback<TableColumn.CellDataFeatures<ObservableList, String>,
+                        ObservableValue<String>>) param -> new SimpleStringProperty(param.getValue().get(j).toString()));
 
                 // Añadir las columnas a la tabla dada como parámetro
                 tabla.getColumns().addAll(col);
@@ -981,7 +1013,7 @@ public class ControllerHospital implements Initializable {
     }
 
     /**
-     * Restaura los campos del formulario de médicos a su diseño original
+     * Restaura los campos del formulario de ingresos a su diseño original
      */
     private void reseteaIngresos() {
         // Estilo original
@@ -1057,7 +1089,6 @@ public class ControllerHospital implements Initializable {
         tfNumColegiado.setText("");
         tfCargo.setText("");
         tfObservacionesMedicos.setText("");
-
     }
 
     /**
@@ -1070,7 +1101,6 @@ public class ControllerHospital implements Initializable {
         tfDomicilio.setText("");
         tfPoblacion.setText("");
         cbProvincia.setValue("Almería");
-        ;
         tfCodPostal.setText("");
         tfTelefono.setText("");
         tfNumHistorial.setText("");
