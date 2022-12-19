@@ -511,11 +511,11 @@ public class ControllerHospital implements Initializable {
                 // Comprobamos con la variable editaPaciente si haremos update o insert
                 if (!editaPaciente) { // INSERT
                     PreparedStatement insertQuery = con.prepareStatement("INSERT INTO pacientes (seg_social," +
-                            " nombre," + "apellidos, domicilio, poblacion, provincia, num_tlfn, num_historial," +
-                            " observaciones) VALUES " + "(?,?,?,?,?,?,?,?,?)");
+                            " nombre," + "apellidos, domicilio, poblacion, provincia, cod_postal, num_tlfn, num_historial," +
+                            " observaciones) VALUES " + "(?,?,?,?,?,?,?,?,?,?)");
                     // Construimos la query
                     construyeQueryPaciente(seg_social, nombrePaciente, apellidosPaciente, domicilio, poblacion,
-                            provincia, num_tlfn, num_historial, observaciones, insertQuery);
+                            provincia, cod_postal, num_tlfn, num_historial, observaciones, insertQuery);
                     try {
                         if (insertQuery.executeUpdate() == 1) {
                             // Ventana de confirmación
@@ -530,10 +530,10 @@ public class ControllerHospital implements Initializable {
 
                 } else { // UPDATE
                     PreparedStatement updateQuery = con.prepareStatement("UPDATE pacientes SET nombre = ?," +
-                            " apellidos = ?," + "domicilio = ?, poblacion = ?, provincia = ?, num_tlfn = ?," +
+                            " apellidos = ?," + "domicilio = ?, poblacion = ?, provincia = ?, cod_postal = ?, num_tlfn = ?," +
                             " num_historial = ?, observaciones = ?" + "WHERE seg_social = ?");
                     // Construimos la query
-                    construyeQueryPaciente(nombrePaciente, apellidosPaciente, domicilio, poblacion, provincia,
+                    construyeQueryPaciente(nombrePaciente, apellidosPaciente, domicilio, poblacion, provincia, cod_postal,
                             num_tlfn, num_historial, observaciones, seg_social, updateQuery);
 
                     if (updateQuery.executeUpdate() == 1) {
@@ -942,7 +942,7 @@ public class ControllerHospital implements Initializable {
     /**
      * Construye la query dada como parámetro con los valores dados
      */
-    private void construyeQueryPaciente(String valor1, String valor2, String valor3, String valor4, String valor5, String valor6, String valor7, String valor8, String valor9, PreparedStatement updateQuery) throws SQLException {
+    private void construyeQueryPaciente(String valor1, String valor2, String valor3, String valor4, String valor5, String valor6, String valor7, String valor8, String valor9, String valor10, PreparedStatement updateQuery) throws SQLException {
         updateQuery.setString(1, valor1);
         updateQuery.setString(2, valor2);
         updateQuery.setString(3, valor3);
@@ -952,6 +952,7 @@ public class ControllerHospital implements Initializable {
         updateQuery.setString(7, valor7);
         updateQuery.setString(8, valor8);
         updateQuery.setString(9, valor9);
+        updateQuery.setString(10,valor10);
     }
 
     /**
