@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KeMeComo</string>
+    <string name="btn_plato">Añade nuevo</string>
+    <string name="caja_plato">Teclea plato…</string>
+    <string name="btn_aleat">¡Échalo a suertes!</string>
+    <string name="helloWorld">Cosotas</string>
+    <string name="helloWorld2">Cosotas</string>
+</resources>

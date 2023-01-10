@@ -5,46 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e52f96b-fdcc-401e-ba18-a0b12e010a35" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../DDI_JUnitDemo6/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DDI_JUnitDemo6/src/main/java/Asmtv2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DDI_JUnitDemo6/src/test/java/Asmtv2Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DDI_VisorTest/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DDI_VisorTest/src/main/java/ConexionBD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DDI_VisorTest/src/main/java/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DDI_VisorTest/src/main/java/Cuenta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DDI_VisorTest/src/test/java/ConexionBDTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../DDI_VisorTest/src/test/java/ControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AD_ProyectoHospital/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AD_ProyectoHospital/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AD_ProyectoHospital/src/main/java/safa/fran/ad_proyectohospital/ControllerHospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AD_ProyectoHospital/src/main/java/safa/fran/ad_proyectohospital/ControllerHospital.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DDI_JUnitDemo3/target/surefire-reports/BowlingGameTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_JUnitDemo3/target/surefire-reports/BowlingGameTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DDI_JUnitDemo3/target/surefire-reports/TEST-BowlingGameTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_JUnitDemo3/target/surefire-reports/TEST-BowlingGameTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_JUnitDemo5/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_JUnitDemo5/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_JUnitDemo5/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_JUnitDemo5/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_JUnitDemo5/target/surefire-reports/ShoppingCartTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_JUnitDemo5/target/surefire-reports/ShoppingCartTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_JUnitDemo5/target/surefire-reports/TEST-ShoppingCartTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_JUnitDemo5/target/surefire-reports/TEST-ShoppingCartTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DDI_Visor.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/AbsoluteLayout.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/commons-collections-3.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/commons-digester-2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/groovy-2.4.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/itext-pdfa-5.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/itextpdf-5.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/jasperreports-6.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.24-bin.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/ConexionBD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/ControllerCuenta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/CuentaBater.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/model/Cuenta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/controller/view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jasper/pdf/Visor_Jaspersoft.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jasper/pdf/Visor_Jaspersoft.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_VisorTest/src/test/java/ConexionBDTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_VisorTest/src/test/java/ConexionBDTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_VisorTest/src/test/java/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_VisorTest/src/test/java/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_VisorTest/target/surefire-reports/ConexionBDTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_VisorTest/target/surefire-reports/ConexionBDTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_VisorTest/target/surefire-reports/ControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_VisorTest/target/surefire-reports/ControllerTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_VisorTest/target/surefire-reports/TEST-ConexionBDTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_VisorTest/target/surefire-reports/TEST-ConexionBDTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_VisorTest/target/surefire-reports/TEST-ControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_VisorTest/target/surefire-reports/TEST-ControllerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_VisorTest/target/test-classes/ConexionBDTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_VisorTest/target/test-classes/ConexionBDTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_VisorTest/target/test-classes/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_VisorTest/target/test-classes/ControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +126,8 @@
       <workItem from="1671433292960" duration="162000" />
       <workItem from="1671433466195" duration="23000" />
       <workItem from="1671433500771" duration="1606000" />
+      <workItem from="1671537926782" duration="10000" />
+      <workItem from="1672271124052" duration="26000" />
     </task>
     <servers />
   </component>
