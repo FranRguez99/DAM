@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">KeMeKomo</string>
+    <string name="letreto">Número Tope</string>
+    <string name="descripcion_logo">Logo de la aplicación</string>
+    <string name="descripcion_boton">Botón que genera los platos</string>
+</resources>

@@ -18,11 +18,23 @@ namespace DDI_HolaAdios
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Saludos : Window
     {
-        public MainWindow()
+        public Saludos()
         {
             InitializeComponent();
+        }
+
+        private void MuestraBoton_Click(object sender, RoutedEventArgs e)
+        {
+            if (HolaBoton.IsChecked == true)
+            {
+                MessageBox.Show("Hola.");
+            }
+            else if (AdiosBoton.IsChecked == true)
+            {
+                MessageBox.Show("Adiós.");
+            }
         }
     }
 }

@@ -1,0 +1,15 @@
+C:\Users\franr\workspaceDAM\DDI_Calculator\bin\Debug\net6.0\DDI_Calculator.exe
+C:\Users\franr\workspaceDAM\DDI_Calculator\bin\Debug\net6.0\DDI_Calculator.deps.json
+C:\Users\franr\workspaceDAM\DDI_Calculator\bin\Debug\net6.0\DDI_Calculator.runtimeconfig.json
+C:\Users\franr\workspaceDAM\DDI_Calculator\bin\Debug\net6.0\DDI_Calculator.dll
+C:\Users\franr\workspaceDAM\DDI_Calculator\bin\Debug\net6.0\DDI_Calculator.pdb
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\DDI_Calculator.csproj.AssemblyReference.cache
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\DDI_Calculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\DDI_Calculator.AssemblyInfoInputs.cache
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\DDI_Calculator.AssemblyInfo.cs
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\DDI_Calculator.csproj.CoreCompileInputs.cache
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\DDI_Calculator.dll
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\refint\DDI_Calculator.dll
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\DDI_Calculator.pdb
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\DDI_Calculator.genruntimeconfig.cache
+C:\Users\franr\workspaceDAM\DDI_Calculator\obj\Debug\net6.0\ref\DDI_Calculator.dll
