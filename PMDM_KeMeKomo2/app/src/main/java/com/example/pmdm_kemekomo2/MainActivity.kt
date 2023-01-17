@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.cantidad.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                contador = 0
                 limite = 5 + progress
             }
 
@@ -40,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
+                contador = 0
                 binding.plato.text = ""
                 binding.boton.isEnabled = true
                 Toast.makeText(applicationContext, "El tope es: $limite", Toast.LENGTH_SHORT).show()
