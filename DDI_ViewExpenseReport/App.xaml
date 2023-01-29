@@ -10,7 +10,7 @@
             <Setter Property="Label.FontFamily" Value="Trebuchet MS"></Setter>
             <Setter Property="Label.FontWeight" Value="Bold"></Setter>
             <Setter Property="Label.FontSize" Value="18"></Setter>
-            <Setter Property="Label.Foreground" Value="#0066cc"></Setter>
+            <Setter Property="Label.Foreground" Value="#FF19B84B"></Setter>
         </Style>
 
         <!-- Etiqueta -->
@@ -25,7 +25,7 @@
         <Style x:Key="columnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
             <Setter Property="Height" Value="35" />
             <Setter Property="Padding" Value="5" />
-            <Setter Property="Background" Value="#4E87D4" />
+            <Setter Property="Background" Value="#FF19B84B" />
             <Setter Property="Foreground" Value="White" />
         </Style>
 
@@ -33,7 +33,7 @@
         <Style x:Key="listHeaderStyle" TargetType="{x:Type Border}">
             <Setter Property="Height" Value="35" />
             <Setter Property="Padding" Value="5" />
-            <Setter Property="Background" Value="#4E87D4" />
+            <Setter Property="Background" Value="#FF19B84B" />
         </Style>
 
         <!-- Texto de cabecera de la lista -->

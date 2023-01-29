@@ -9,7 +9,8 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val listaPlatos = arrayListOf("Tortilla de Bacalao", "Chuletón", "Croquetas", "Pimientos", "Calamar", "Entrecot")
+    private val listaPlatos = arrayListOf("Tortilla de Bacalao", "Chuletón", "Croquetas",
+        "Pimientos", "Calamar", "Entrecot")
     private var limite = 5
     private var contador = 0
 

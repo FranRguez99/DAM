@@ -10,7 +10,7 @@
 
     <Grid Margin="10,0,10,10">
         <Grid.Resources>
-            
+
             <!-- Datos del reporte de gastos -->
             <XmlDataProvider x:Key="ExpenseDataSource" XPath="Expenses">
                 <x:XData>
@@ -41,9 +41,9 @@
                 <Label Content="{Binding XPath=@Name}"/>
             </DataTemplate>
         </Grid.Resources>
-        
+
         <Grid.Background>
-            <ImageBrush ImageSource="watermark.png"  />
+            <ImageBrush ImageSource="image.jpg"  />
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
@@ -60,10 +60,10 @@
 
         <!-- Lista de personas -->
 
-        <Label Grid.Column="1" Style="{StaticResource headerTextStyle}" Content="Reporte de Gastos" />
+        <Label Grid.Column="1" Style="{StaticResource headerTextStyle}" Content="Reporte de Gastos" Foreground="#FF19B84B" />
 
-        <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource listHeaderStyle}">
-            <Label Style="{StaticResource listHeaderTextStyle}" Content="Nombres"/>
+        <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource listHeaderStyle}" Background="#FF19B84B">
+            <Label Style="{StaticResource listHeaderTextStyle}" Content="Nombres" Foreground="White"/>
         </Border>
         <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2" 
          ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}"
@@ -72,6 +72,7 @@
 
         <!-- Botón de vista del reporte -->
         <Button Grid.Column="1" Grid.Row="3" Click="Button_Click" Style="{StaticResource buttonStyle}" Content="Ver"/>
+        <Image HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="67" Source="/logo.png" Margin="139,17,0,0"/>
 
     </Grid>
 </Page>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDI_SmartCRUD", "DDI_SmartCRUD.csproj", "{8EB53A81-23B3-489E-A203-0652E0A63C31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EB53A81-23B3-489E-A203-0652E0A63C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB53A81-23B3-489E-A203-0652E0A63C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB53A81-23B3-489E-A203-0652E0A63C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB53A81-23B3-489E-A203-0652E0A63C31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7C2FFC8-A658-4E6B-BE53-E6225409671F}
+	EndGlobalSection
+EndGlobal

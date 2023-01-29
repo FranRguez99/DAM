@@ -18,7 +18,7 @@ public class ConexionBD {
     public static Connection conectar() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdvisor", "root",
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3307/bdvisor", "root",
                     "root");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);

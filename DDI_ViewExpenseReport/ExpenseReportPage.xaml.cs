@@ -29,5 +29,10 @@ namespace DDI_ViewExpenseReport
             // Enlace a los datos del informe de gastos.
             this.DataContext = data;
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

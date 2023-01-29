@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BoteGracias</string>
+    <string name="coste_servicio">Sartenazo</string>
+    <string name="como_fue_el_servicio">¿Qué le pareció el servicio?</string>
+    <string name="servicio_genial">Genial (20%)</string>
+    <string name="servicio_bueno">Bien (12%)</string>
+    <string name="servicio_normal">Correcto (8%)</string>
+    <string name="redondear_propina">¿Sin decimales?</string>
+    <string name="calcular">Calculando</string>
+    <string name="cantidad_propina">Montante propina: %s</string>
+</resources>
