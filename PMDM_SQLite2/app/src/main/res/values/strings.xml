@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PMDM_SQLite2</string>
+    <string name="lista">Lista</string>
+    <string name="insertar">Insertar</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="eliminar">Eliminar</string>
+</resources>

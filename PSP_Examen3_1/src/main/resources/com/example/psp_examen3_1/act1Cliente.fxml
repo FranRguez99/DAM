@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.psp_examen3_1.ClienteController">
+   <children>
+      <Pane fx:id="paneInicio" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <TextField fx:id="tfUsuario" layoutX="82.0" layoutY="121.0" prefHeight="79.0" prefWidth="436.0" promptText="NOMBRE DE USUARIO" />
+            <Button layoutX="222.0" layoutY="250.0" mnemonicParsing="false" onAction="#acceso" prefHeight="79.0" prefWidth="157.0" text="ACCESO" />
+         </children>
+      </Pane>
+      <Pane fx:id="paneChat" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <Button fx:id="btnSalir" layoutX="451.0" layoutY="119.0" mnemonicParsing="false" onAction="#salir" prefHeight="25.0" prefWidth="120.0" text="Salir" />
+            <TextArea fx:id="taChat" layoutX="29.0" layoutY="165.0" prefHeight="200.0" prefWidth="542.0" />
+            <Button fx:id="btnEnviar" layoutX="451.0" layoutY="36.0" mnemonicParsing="false" onAction="#enviar" prefHeight="25.0" prefWidth="120.0" text="Enviar" />
+            <Button fx:id="btnRefrescar" layoutX="449.0" layoutY="77.0" mnemonicParsing="false" onAction="#refrescar" prefHeight="25.0" prefWidth="120.0" text="Refrescar" />
+            <TextField fx:id="tfEnviar" layoutX="43.0" layoutY="77.0" prefHeight="25.0" prefWidth="356.0" />
+         </children>
+      </Pane>
+   </children>
+</Pane>

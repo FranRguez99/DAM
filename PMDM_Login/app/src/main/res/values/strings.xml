@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Login Básico</string>
+    <string name="letrero">Registro Necesario</string>
+    <string name="outline">Usuario</string>
+    <string name="outline2">Contraseña</string>
+    <string name="boton">LOGIN</string>
+    <string name="usuario">USUARIO: %s</string>
+    <string name="clave">CLAVE: %s</string>
+    <string name="volver">VOLVER</string>
+</resources>

@@ -5,48 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e52f96b-fdcc-401e-ba18-a0b12e010a35" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../PMDM_BoteKeMeKomo/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PMDM_BoteKeMeKomo/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PMDM_BoteKeMeKomo/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PMDM_BoteKeMeKomo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PMDM_BoteKeMeKomo/app/src/main/res/drawable-hdpi/granasador_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PMDM_BoteKeMeKomo/app/src/main/res/drawable-mdpi/granasador_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PMDM_BoteKeMeKomo/app/src/main/res/drawable-xhdpi/granasador_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PMDM_BoteKeMeKomo/app/src/main/res/drawable-xxhdpi/granasador_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PMDM_BoteKeMeKomo/app/src/main/res/drawable-xxxhdpi/granasador_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PSP_Ejemplos/src/Ejemplos_T3/Act7_Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PSP_Ejemplos/src/Ejemplos_T3/Act7_Socket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/.vs/DDI_ViewExpenseReport/FileContentIndex/4012bb52-9e90-4534-81c0-a25e7aa00496.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/.vs/DDI_ViewExpenseReport/FileContentIndex/744a0c11-d6a4-4440-852e-01428ba37d4c.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/.vs/DDI_ViewExpenseReport/FileContentIndex/7a716494-718e-4ded-8e4b-51dbf8e0bc72.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/.vs/DDI_ViewExpenseReport/FileContentIndex/80dac790-5d6e-477a-bc17-1d643481fd56.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/.vs/DDI_ViewExpenseReport/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/.vs/DDI_ViewExpenseReport/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/App.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/DDI_ViewExpenseReport.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/DDI_ViewExpenseReport.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/ExpenseItHome.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/ExpenseItHome.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/ExpenseReportPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/ExpenseReportPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/ExpenseReportPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/ExpenseReportPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/bin/Debug/DDI_ViewExpenseReport.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/bin/Debug/DDI_ViewExpenseReport.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/bin/Debug/DDI_ViewExpenseReport.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/bin/Debug/DDI_ViewExpenseReport.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/App.baml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/App.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/App.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/App.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/App.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/App.g.i.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport.g.resources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport_Content.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport_Content.g.i.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport_MarkupCompile.i.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/DDI_ViewExpenseReport_MarkupCompile.i.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseItHome.baml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseItHome.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseItHome.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseItHome.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseItHome.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseItHome.g.i.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseReportPage.baml" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseReportPage.baml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseReportPage.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseReportPage.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseReportPage.g.i.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_ViewExpenseReport/obj/Debug/ExpenseReportPage.g.i.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PMDM_Login/app/src/main/res/drawable-hdpi/logo_login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PMDM_Login/app/src/main/res/drawable-mdpi/logo_login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PMDM_Login/app/src/main/res/drawable-xhdpi/logo_login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PMDM_Login/app/src/main/res/drawable-xxhdpi/logo_login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PMDM_Login/app/src/main/res/drawable-xxxhdpi/logo_login.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_SmartCRUD/.vs/DDI_SmartCRUD/FileContentIndex/38bd78d4-57af-45d0-a341-4034ef8c9bba.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_SmartCRUD/.vs/DDI_SmartCRUD/FileContentIndex/7e2bbef3-4c62-4ac3-af45-c0cdc74f30a3.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_SmartCRUD/.vs/DDI_SmartCRUD/FileContentIndex/c969cb63-6343-4ed9-b588-176beabe76f6.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_SmartCRUD/.vs/DDI_SmartCRUD/FileContentIndex/ef16e3af-9b55-4cf0-bd22-555f020da816.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_SmartCRUD/.vs/DDI_SmartCRUD/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_SmartCRUD/.vs/DDI_SmartCRUD/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_SmartCRUD/obj/Debug/DDI_SmartCRUD_MarkupCompile.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../DDI_SmartCRUD/obj/Debug/DDI_SmartCRUD_MarkupCompile.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDI_SmartCRUD/obj/Debug/MainWindow.baml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/safa/ddi_visor/ConexionBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/safa/ddi_visor/ConexionBD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PMDM_KeMeKomo2/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PMDM_KeMeKomo2/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PMDM_KeMeKomo2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PMDM_KeMeKomo2/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PMDM_KeMeKomo2/app/src/main/java/com/example/pmdm_kemekomo2/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../PMDM_KeMeKomo2/app/src/main/java/com/example/pmdm_kemekomo2/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +133,10 @@
       <workItem from="1672271124052" duration="26000" />
       <workItem from="1674549735149" duration="870000" />
       <workItem from="1674577406697" duration="9000" />
+      <workItem from="1675076278231" duration="2078000" />
+      <workItem from="1675149606506" duration="2729000" />
+      <workItem from="1675168204444" duration="716000" />
+      <workItem from="1675169041291" duration="15000" />
     </task>
     <servers />
   </component>
