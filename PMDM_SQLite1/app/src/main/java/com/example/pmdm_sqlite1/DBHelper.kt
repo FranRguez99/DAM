@@ -1,4 +1,4 @@
-package com.release.gfg1
+package com.example.pmdm_sqlite1
 
 import android.content.ContentValues
 import android.content.Context

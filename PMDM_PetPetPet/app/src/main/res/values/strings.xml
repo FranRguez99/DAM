@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">PMDM_PetPetPet</string>
+
+    <!-- Ventana login -->
+    <string name="bienvenida">Bienvenidos a PetPetPet</string>
+    <string name="usuario">Usuario</string>
+    <string name="clave">Clave</string>
+    <string name="recordar">Recuérdame</string>
+    <string name="login">Login</string>
+
+    <!-- Ventana registro -->
+    <string name="usuarioLog">Usuario: </string>
+    <string name="tituloReg">Registro Animales de Compañía</string>
+    <string name="codigo">Cod. Ident.:</string>
+    <string name="nombre">Nombre:</string>
+    <string name="raza">Raza:</string>
+    <string name="sexo">Sexo:</string>
+    <string name="fecha">Fecha Nac.:</string>
+    <string name="dni">DNI:</string>
+    <string name="alta">Alta</string>
+    <string name="modifica">Modifica</string>
+    <string name="borra">Borra</string>
+    <string name="consulta">Consulta</string>
+    <string name="consultaTodas">Consulta Todas</string>
+
+    <!-- Ventana lista -->
+    <string name="volver">Volver</string>
+</resources>
