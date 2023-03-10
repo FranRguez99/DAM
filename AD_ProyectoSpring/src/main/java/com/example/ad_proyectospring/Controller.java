@@ -15,7 +15,12 @@ public class Controller {
     @Autowired
     private FlightService flightService;
 
-    @GetMapping({"/flights", "/"})
+    @GetMapping("/")
+    public String login(){
+        return "login";
+    }
+
+    @GetMapping("/flights")
     public String flightList(Model model) {
         model.addAttribute("flights", flightService.getAllFlights());
         return "flights"; // Nos lleva al html flights

@@ -3,7 +3,6 @@ package com.example.ad_proyectospring.flights;
 import jakarta.persistence.*;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,7 +13,7 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-   @Column(name = "pilot", nullable = false, length = 50)
+    @Column(name = "pilot", nullable = false, length = 50)
     private String pilot;
 
     @Column(name = "passengers", nullable = false, length = 3)
