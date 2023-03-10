@@ -38,8 +38,10 @@ public class AdProyectoSpringApplication implements CommandLineRunner {
         flightRepository.save(flight3);
 
 
-        User user = new User("admin", "admin");
-        userRepository.save(user);
+        User user1 = new User("admin", "admin");
+        userRepository.save(user1);
+        User user2 = new User("pepeluis", "pepeluis");
+        userRepository.save(user2);
         */
 
     }

@@ -1,4 +1,4 @@
-package Practica.Actividad2;
+package Actividad2;
 
 import org.apache.commons.net.smtp.AuthenticatingSMTPClient;
 import org.apache.commons.net.smtp.SMTPReply;
@@ -93,60 +93,56 @@ public class Actividad2
             }
         });
 
-        enviarButton.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent actionEvent)
+        enviarButton.addActionListener(actionEvent -> {
+            try
             {
-                try
+                if(client.execTLS())
                 {
-                    if(client.execTLS())
+                    if (client.auth(AuthenticatingSMTPClient.AUTH_METHOD.LOGIN, usuario, clave))
                     {
-                        if (client.auth(AuthenticatingSMTPClient.AUTH_METHOD.LOGIN, usuario, clave))
+                        SimpleSMTPHeader cabecera = new SimpleSMTPHeader(remitente, destinatario, asunto);
+
+                        client.setSender(remitente);
+                        client.addRecipient(destinatario);
+
+                        Writer writer = client.sendMessageData();
+                        if (writer == null)
                         {
-                            SimpleSMTPHeader cabecera = new SimpleSMTPHeader(remitente, destinatario, asunto);
+                            JOptionPane.showMessageDialog(null, "Fallo al enviar los datos");
+                            System.exit(1);
+                        }
 
-                            client.setSender(remitente);
-                            client.addRecipient(destinatario);
+                        writer.write(cabecera.toString());
+                        writer.write(cuerpo);
+                        writer.close();
 
-                            Writer writer = client.sendMessageData();
-                            if (writer == null)
-                            {
-                                JOptionPane.showMessageDialog(null, "Fallo al enviar los datos");
-                                System.exit(1);
-                            }
+                        boolean exito = client.completePendingCommand();
 
-                            writer.write(cabecera.toString());
-                            writer.write(cuerpo);
-                            writer.close();
-
-                            boolean exito = client.completePendingCommand();
-
-                            if(!exito)
-                            {
-                                JOptionPane.showMessageDialog(null, "Fallo al finalizar la transaccion");
-                                System.exit(1);
-                            }
-                                else
-                                {
-                                    JOptionPane.showMessageDialog(null, "Mensaje enviado con exito");
-                                }
+                        if(!exito)
+                        {
+                            JOptionPane.showMessageDialog(null, "Fallo al finalizar la transaccion");
+                            System.exit(1);
                         }
                             else
                             {
-                                JOptionPane.showMessageDialog(null, "Usuario no autenticado");
+                                JOptionPane.showMessageDialog(null, "Mensaje enviado con exito");
                             }
-
                     }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Fallo al ejecutar START TLS");
+                            JOptionPane.showMessageDialog(null, "Usuario no autenticado");
                         }
+
                 }
-                    catch (Exception e)
+                    else
                     {
-                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Fallo al ejecutar START TLS");
                     }
             }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
         });
 
         /* ************************************************************* */
